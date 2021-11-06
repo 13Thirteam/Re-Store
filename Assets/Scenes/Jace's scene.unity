@@ -508,7 +508,7 @@ MonoBehaviour:
   fireOffset: 0
   potionPrefab: {fileID: 7275760019396174635, guid: 589b09b6b7a90334895e3c53176784eb, type: 3}
   potionForce: 20
-  fireRate: 0.1
+  fireRate: 1
   playerRB: {fileID: 963080587}
 --- !u!1001 &7770514584174959848
 PrefabInstance:
