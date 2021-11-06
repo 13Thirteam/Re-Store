@@ -18,12 +18,14 @@ public class Explosion : MonoBehaviour
         
     }
 
-    void OnColliderEnter2D(Collider2D target)
+    void OnTriggerEnter2D(Collider2D target)
     {
-        if (target.tag == "Enemy")
+        if (target.CompareTag("Enemy"))
         {
             target.transform.SendMessage("TakeDamage", damage);
             Debug.Log("hit");
         }
+
+        
     }
 }
