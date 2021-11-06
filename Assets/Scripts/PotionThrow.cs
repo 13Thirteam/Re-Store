@@ -15,7 +15,6 @@ public class PotionThrow : MonoBehaviour
     void Start()
     {
         fireCooldown = 0;
-
     }
 
     // Update is called once per frame
