@@ -32,12 +32,12 @@ public class Potion : MonoBehaviour
         Destroy(potion, 2f);
     }
 
-    void OnTriggerEnter2D(Collider2D target)
+    void OnCollisionEnter2D(Collision2D col)
     {
-        if (target.tag == "Enemy")
+        if (col.gameObject.tag == "Enemy")
         {
             explode();
-            target.transform.SendMessage("TakeDamage", damage);
+            col.transform.SendMessage("TakeDamage", damage);
             Debug.Log("hit");
             Destroy(gameObject);
         }
