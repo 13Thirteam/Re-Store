@@ -38,6 +38,7 @@ public class Potion : MonoBehaviour
         {
             explode();
             target.transform.SendMessage("TakeDamage", damage);
+            Debug.Log("hit");
             Destroy(gameObject);
         }
     }
