@@ -6,9 +6,10 @@ public class PotionThrow : MonoBehaviour
 {
 
     public Transform firePoint;
+    [SerializeField] float fireOffset;
     public GameObject potionPrefab;
     public float potionForce = 20f;
-    public float fireRate = 10f;
+    public float fireRate = 0.1f;
     private float fireCooldown;
 
     public Rigidbody2D playerRB;
@@ -22,7 +23,7 @@ public class PotionThrow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Fire1") && fireCooldown < 0)
+        if (Input.GetKeyDown(KeyCode.UpArrow) && fireCooldown < 0)
         {
             fire();
             fireCooldown = fireRate;
@@ -33,8 +34,8 @@ public class PotionThrow : MonoBehaviour
 
     void fire()
     {
-        GameObject bullet = Instantiate(potionPrefab, firePoint.position, firePoint.rotation);
-        Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+        GameObject potion = Instantiate(potionPrefab, firePoint.position, firePoint.rotation);
+        Rigidbody2D rb = potion.GetComponent<Rigidbody2D>();
         rb.AddForce(firePoint.up * potionForce, ForceMode2D.Impulse);
     }
 }
