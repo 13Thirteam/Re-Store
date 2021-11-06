@@ -13,7 +13,10 @@ public class Potion : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-     
+        /*foreach(Explosion explosion in FindObjectsOfType<Explosion>())
+        {
+            Physics2D.IgnoreCollision(GetComponent<Collider2D>(), explosion.GetComponent<Collider2D>(), true);
+        }*/
     }
 
     // Update is called once per frame
@@ -32,12 +35,12 @@ public class Potion : MonoBehaviour
         Destroy(potion, 2f);
     }
 
-    void OnTriggerEnter2D(Collider2D target)
+    void OnCollisionEnter2D(Collision2D col)
     {
-        if (target.tag == "Enemy")
+        if (col.gameObject.tag == "Enemy")
         {
             explode();
-            target.transform.SendMessage("TakeDamage", damage);
+            col.transform.SendMessage("TakeDamage", damage);
             Debug.Log("hit");
             Destroy(gameObject);
         }
