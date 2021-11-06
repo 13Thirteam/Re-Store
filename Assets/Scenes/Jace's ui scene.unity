@@ -595,13 +595,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31e736da66c6d6845bb22ed90a0fa911, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fadeRate: 0.75
+  timeBeforeLevelChange: 2
   playerRef: {fileID: 2015339550}
   deathUI:
   - {fileID: 1857155331}
   winUI:
   - {fileID: 1555651275}
   fadeImg: {fileID: 300827972}
-  fadeRate: 0.75
 --- !u!4 &1430959424
 Transform:
   m_ObjectHideFlags: 0
@@ -1424,7 +1425,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
-  m_Color: {r: 0.04150939, g: 0.30901334, b: 1, a: 1}
+  m_Color: {r: 0, g: 0.27868843, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1442,7 +1443,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2015339544}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.4338367, y: -0.14005731, z: 0}
+  m_LocalPosition: {x: -1.74, y: 0.23, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1088241482}
