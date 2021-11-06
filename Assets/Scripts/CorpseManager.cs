@@ -8,7 +8,7 @@ public class CorpseManager : MonoBehaviour
 
     int currentLayer = 0;
 
-    public void makeCorpse(Vector3 pos)
+    public void makeCorpse(Vector3 pos) //instantiates corpse object under corpseManager object
     {
         GameObject currentCorpse = Instantiate(corpse, pos, Quaternion.identity, transform);
         currentCorpse.GetComponent<SpriteRenderer>().sortingOrder = currentLayer;

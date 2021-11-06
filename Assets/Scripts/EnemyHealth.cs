@@ -19,20 +19,20 @@ public class EnemyHealth : MonoBehaviour
 
     private void Update()
     {
-        if(button != currentValue)
+        /*if(button != currentValue) //button to trigger death in editor
         {
             currentValue = button;
             Die();
-        }
+        }*/
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(int damage) //deals damage to enemy
     {
         health -= damage;
         if (health <= 0) Die();
     }
 
-    private void Die()
+    private void Die() 
     {
         corpseManager.makeCorpse(transform.position);
     }
