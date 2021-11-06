@@ -43,7 +43,6 @@ public class PotionThrow : MonoBehaviour
 
     void fire(Vector2 dir)
     {
-
         GameObject potion = Instantiate(potionPrefab, firePoint.position, firePoint.rotation);
         Rigidbody2D rb = potion.GetComponent<Rigidbody2D>();
         rb.AddForce(dir * potionForce, ForceMode2D.Impulse);
