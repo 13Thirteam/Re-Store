@@ -8,6 +8,8 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] private float detectLength;
     [SerializeField] private LayerMask layerMask;
     private Transform player;
+    [SerializeField] private bool obstacleBlocked = false;
+    private Vector2 dodgeDir;
 
     // Start is called before the first frame update
     void Start()
@@ -23,16 +25,37 @@ public class EnemyMovement : MonoBehaviour
 
     public void EnemyMove()
     {
-        Vector3 moveVec = Vector3.MoveTowards(transform.position, player.position, moveSpeed * Time.deltaTime); 
-        RaycastHit2D hit = Physics2D.Raycast(
-           transform.position,
-           moveVec.normalized,
+        Vector3 moveVec = Vector3.MoveTowards(transform.position, player.position, moveSpeed * Time.deltaTime);
+        Vector2 moveDir = player.position - transform.position;
+        RaycastHit2D hit1 = Physics2D.Raycast(
+           (Vector2)transform.position + Vector2.Perpendicular(moveDir).normalized * transform.localScale * .5f,
+           moveDir.normalized,
            detectLength,
            layerMask
-        );
-        if (hit.collider != null)
+        ); 
+        RaycastHit2D hit2 = Physics2D.Raycast(
+           (Vector2)transform.position - Vector2.Perpendicular(moveDir).normalized * transform.localScale * .5f,
+            moveDir.normalized,
+            detectLength,
+            layerMask
+         );
+        Debug.DrawRay((Vector2)transform.position + Vector2.Perpendicular(moveDir).normalized * transform.localScale * .5f,
+           moveDir.normalized,
+           Color.white,
+           Time.deltaTime);
+
+        Debug.DrawRay((Vector2)transform.position - Vector2.Perpendicular(moveDir).normalized * transform.localScale * .5f,
+            moveDir.normalized,
+           Color.white,
+           Time.deltaTime);
+        if (hit1.collider != null || hit2.collider != null)
         {
-            transform.position = (Vector2)transform.position + Vector2.Perpendicular(transform.position - player.position)/moveVec.magnitude * moveSpeed * Time.deltaTime;
+            if(!obstacleBlocked)
+            {
+                obstacleBlocked = true;
+                dodgeDir = Vector2.Perpendicular(moveDir);
+            }
+            transform.position = (Vector2)transform.position + dodgeDir/moveDir.magnitude * moveSpeed * Time.deltaTime;
         }
         else
         {
