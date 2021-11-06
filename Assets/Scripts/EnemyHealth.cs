@@ -4,15 +4,36 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] int health;
+    
+    CorpseManager corpseManager;
+
+    //TEMP
+    [SerializeField] bool button = false;
+    bool currentValue = false;
+
+    private void Start()
     {
-        
+        corpseManager = FindObjectOfType<CorpseManager>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        /*if(button != currentValue) //button to trigger death in editor
+        {
+            currentValue = button;
+            Die();
+        }*/
+    }
+
+    public void TakeDamage(int damage) //deals damage to enemy
+    {
+        health -= damage;
+        if (health <= 0) Die();
+    }
+
+    private void Die() 
+    {
+        corpseManager.makeCorpse(transform.position);
     }
 }
