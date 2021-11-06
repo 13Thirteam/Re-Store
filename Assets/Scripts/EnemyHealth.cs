@@ -35,6 +35,7 @@ public class EnemyHealth : MonoBehaviour
     private void Die() 
     {
         corpseManager.makeCorpse(transform.position);
+        GameController.killCount++;
         Destroy(gameObject);
     }
 }

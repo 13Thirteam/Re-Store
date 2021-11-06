@@ -13,6 +13,7 @@ public class EnemySpawner : MonoBehaviour
     private void Start()
     {
         spawnTimes.Sort();
+        GameController.spawnCount += spawnTimes.Count;
     }
 
     void Update()

@@ -10,11 +10,17 @@ public class GameController : MonoBehaviour
     public static Transform player;
     [SerializeField] private Transform playerRef;
 
+    public static int spawnCount = 0;
+    public static int killCount = 0;
     
     [SerializeField] private TextMeshProUGUI[] deathUI;
+    [SerializeField] private TextMeshProUGUI[] winUI;
     [SerializeField] private Image fadeImg;
-    private bool fading = false;
-    private bool fadingIn = false;
+    private bool fadingLose = false;
+    private bool fadingBlack = false;
+    private bool fadingWin = false;
+    private bool lost = false;
+    private bool won = false;
     [SerializeField] private float fadeRate;
 
     // Start is called before the first frame update
@@ -30,35 +36,58 @@ public class GameController : MonoBehaviour
         {
             t.color = new Color(t.color.r, t.color.g, t.color.b, 0);
         }
+        foreach (TextMeshProUGUI t in winUI)
+        {
+            t.color = new Color(t.color.r, t.color.g, t.color.b, 0);
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (fadingIn)
+        if (fadingBlack)
         {
             if (fadeImg.color.a >= 1)
             {
-                Debug.Log("hi");
-                fadingIn = false;
+                fadingBlack = false;
             }
             if (fadeImg.color.a >= .70)
             {
-                FadeTextIn();
+                if (won) { fadingWin = true; }
+                if (lost) { fadingLose = true; }
             }
             fadeImg.color = new Color(fadeImg.color.r, fadeImg.color.g, fadeImg.color.b, fadeImg.color.a + fadeRate * Time.deltaTime);
         }
-        if (fading)
+        if (fadingLose)
         {
-            foreach (TextMeshProUGUI t in deathUI)
-            {
-                if (t.color.a >= 1)
-                {
-                    fading = false;
-                }
-                t.color = new Color(t.color.r, t.color.g, t.color.b, t.color.a + fadeRate * Time.deltaTime);
-            }
+            FadeTextIn(deathUI);
         }
+        if (fadingWin)
+        {
+            FadeTextIn(winUI);
+        }
+        if(killCount >= spawnCount) { Win(); }
+    }
+
+    private void FadeTextIn(TextMeshProUGUI[] UI)
+    {
+        foreach (TextMeshProUGUI t in UI)
+        {
+            if (t.color.a >= 1)
+            {
+                if(won) fadingWin = false;
+                if(lost) fadingLose = false;
+            }
+            t.color = new Color(t.color.r, t.color.g, t.color.b, t.color.a + fadeRate * Time.deltaTime);
+        }
+    }
+
+    private void Win()
+    {
+        fadingBlack = true;
+        won = true;
+        //sfx
+        //loadscene
     }
 
     public void LoadLevel(int val)
@@ -68,11 +97,8 @@ public class GameController : MonoBehaviour
 
     public void Die()
     {
-
-        fadingIn = true;
+        fadingBlack = true;
+        lost = true;
     }
-    private void FadeTextIn()
-    {
-        fading = true;
-    }
+    
 }
