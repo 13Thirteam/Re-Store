@@ -26,7 +26,16 @@ public class PotionThrow : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.UpArrow) && fireCooldown < 0)
         {
             fire();
-            fireCooldown = fireRate;
+        }
+        else if (Input.GetKeyDown(KeyCode.DownArrow) && fireCooldown < 0)
+        {
+            fire();
+        } else if (Input.GetKeyDown(KeyCode.LeftArrow) && fireCooldown < 0)
+        {
+            fire();
+        } else if (Input.GetKeyDown(KeyCode.RightArrow) && fireCooldown < 0)
+        {
+            fire();
         }
         fireCooldown -= Time.deltaTime;
         
@@ -37,5 +46,7 @@ public class PotionThrow : MonoBehaviour
         GameObject potion = Instantiate(potionPrefab, firePoint.position, firePoint.rotation);
         Rigidbody2D rb = potion.GetComponent<Rigidbody2D>();
         rb.AddForce(firePoint.up * potionForce, ForceMode2D.Impulse);
+        fireCooldown = fireRate;
+    
     }
 }
