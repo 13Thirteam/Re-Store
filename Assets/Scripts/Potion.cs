@@ -5,7 +5,7 @@ using UnityEngine;
 public class Potion : MonoBehaviour
 {
 
-    public float lifetime = 5f;
+    public float lifetime = 1f;
     public int damage = 1;
     // Start is called before the first frame update
     void Start()
