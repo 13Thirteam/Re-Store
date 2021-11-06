@@ -24,6 +24,5 @@ public class Potion : MonoBehaviour
         {
             target.transform.SendMessage("TakeDamage", damage);
         }
-
     }
 }

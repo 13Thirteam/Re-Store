@@ -11,6 +11,8 @@ public class PotionThrow : MonoBehaviour
     public float fireRate = 10f;
     private float fireCooldown;
 
+    public Rigidbody2D playerRB;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +28,7 @@ public class PotionThrow : MonoBehaviour
             fireCooldown = fireRate;
         }
         fireCooldown -= Time.deltaTime;
+        
     }
 
     void fire()
