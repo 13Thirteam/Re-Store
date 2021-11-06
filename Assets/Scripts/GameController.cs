@@ -7,21 +7,27 @@ using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
+    
+    //parameters
+    [SerializeField] private float fadeRate;
+    [SerializeField] private float timeBeforeLevelChange = 2f;
+
+    //references
     public static Transform player;
     [SerializeField] private Transform playerRef;
-
-    public static int spawnCount = 0;
-    public static int killCount = 0;
-    
     [SerializeField] private TextMeshProUGUI[] deathUI;
     [SerializeField] private TextMeshProUGUI[] winUI;
     [SerializeField] private Image fadeImg;
+
+    //states
     private bool fadingLose = false;
     private bool fadingBlack = false;
     private bool fadingWin = false;
     private bool lost = false;
     private bool won = false;
-    [SerializeField] private float fadeRate;
+    public static int spawnCount = 0;
+    public static int killCount = 0;
+
 
     // Start is called before the first frame update
     void Awake()
@@ -87,7 +93,13 @@ public class GameController : MonoBehaviour
         fadingBlack = true;
         won = true;
         //sfx
-        //loadscene
+        //StartCoroutine(levelChangeTimer());
+    }
+
+    private IEnumerator levelChangeTimer()
+    {
+        yield return new WaitForSeconds(timeBeforeLevelChange);
+        LoadLevel(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     public void LoadLevel(int val)
