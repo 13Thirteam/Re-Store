@@ -13,10 +13,14 @@ public class Potion : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+<<<<<<< HEAD
+
+=======
         /*foreach(Explosion explosion in FindObjectsOfType<Explosion>())
         {
             Physics2D.IgnoreCollision(GetComponent<Collider2D>(), explosion.GetComponent<Collider2D>(), true);
         }*/
+>>>>>>> 236a1666a847821f11e3d12c3a23fb0afca209b7
     }
 
     // Update is called once per frame
