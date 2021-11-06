@@ -120,7 +120,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifetime: 1
   damage: 1
-  explosionPrefab: {fileID: 2738205038085550861, guid: fc9eecfc24663c34695899c49c030780, type: 3}
+  explosionPrefab: {fileID: 705416144570526289, guid: 179f81247c60603458ea98366dc39e3d, type: 3}
   potionRB: {fileID: 7275760019396174638}
 --- !u!58 &5063025261585191910
 CircleCollider2D:
@@ -132,7 +132,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}

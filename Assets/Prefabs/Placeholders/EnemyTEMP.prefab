@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7571568548432483412}
   - component: {fileID: 9178477550967701294}
   - component: {fileID: 98538864180155608}
+  - component: {fileID: -3824198183466799556}
   m_Layer: 0
   m_Name: EnemyTEMP
   m_TagString: Enemy
@@ -165,3 +166,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 2
   button: 0
+--- !u!114 &-3824198183466799556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2260508878156986567}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8887c5fb56efcfa43811a7683c6f025c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  detectLength: 0.75
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 512
