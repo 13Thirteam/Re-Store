@@ -19,6 +19,7 @@ public class GameController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI[] deathUI;
     [SerializeField] private TextMeshProUGUI[] winUI;
     [SerializeField] private Image fadeImg;
+    [SerializeField] private LevelTracker levelInfo;
 
     //states
     private bool fadingLose = false;
@@ -80,7 +81,7 @@ public class GameController : MonoBehaviour
         {
             FadeTextIn(winUI);
         }
-        if(killCount >= spawnCount) { Win(); }
+        if(!won && killCount >= spawnCount) { Win(); }
     }
 
     private void FadeTextIn(TextMeshProUGUI[] UI)
@@ -90,7 +91,11 @@ public class GameController : MonoBehaviour
             if (t.color.a >= 1)
             {
                 if(won) fadingWin = false;
-                if(lost) fadingLose = false;
+                if (lost)
+                {
+                    fadingLose = false;
+                    SceneManager.LoadScene(0);
+                }
             }
             t.color = new Color(t.color.r, t.color.g, t.color.b, t.color.a + fadeRate * Time.deltaTime);
         }
@@ -98,10 +103,19 @@ public class GameController : MonoBehaviour
 
     private void Win()
     {
+        Debug.Log(levelInfo.currentLevel);
         fadingBlack = true;
-        won = true;
+        levelInfo.currentLevel++;
         //sfx
-        StartCoroutine(levelChangeTimer());
+        if (levelInfo.currentLevel < 4)
+        {
+            won = true;
+            StartCoroutine(levelChangeTimer());
+        }
+        else
+        { 
+            SceneManager.LoadScene(0);
+        }
     }
 
     private IEnumerator levelChangeTimer()
@@ -118,6 +132,7 @@ public class GameController : MonoBehaviour
     public void Die()
     {
         fadingBlack = true;
+        levelInfo.currentLevel = SceneManager.GetActiveScene().buildIndex;
         lost = true;
     }
     
