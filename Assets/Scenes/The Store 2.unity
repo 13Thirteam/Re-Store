@@ -1983,7 +1983,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9000e373b20445459011f3d66a67d9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy: {fileID: 2260508878156986567, guid: eef864359bc460d44a3d1623ca3a8f0f, type: 3}
+  enemy: {fileID: 2260508878156986567, guid: 044fa0e4b9958d045ab47729f2fd67ea, type: 3}
   spawnTimes: 0100000002000000030000000400000008000000
   spawnLocation: {x: 9, y: 0}
 --- !u!4 &1366366988
