@@ -8,6 +8,7 @@ public class EnemyAttack : MonoBehaviour
     private Animator animator;
     [SerializeField] private float detectLength;
     [SerializeField] private LayerMask layerMask;
+    private EnemyMovement move;
 
     // Start is called before the first frame update
     void Start()
@@ -24,6 +25,7 @@ public class EnemyAttack : MonoBehaviour
 
     private void Attack()
     {
+       
         Vector2 moveDir = player.position - transform.position;
         RaycastHit2D hit1 = Physics2D.Raycast(
            transform.position,
