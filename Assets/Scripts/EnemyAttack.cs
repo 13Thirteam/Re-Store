@@ -8,10 +8,12 @@ public class EnemyAttack : MonoBehaviour
     private Animator animator;
     [SerializeField] private float detectLength;
     [SerializeField] private LayerMask layerMask;
+    private EnemyMovement move;
 
     // Start is called before the first frame update
     void Start()
     {
+        move = GetComponent<EnemyMovement>();
         player = GameController.player;
         animator = GetComponent<Animator>();
     }
@@ -24,18 +26,21 @@ public class EnemyAttack : MonoBehaviour
 
     private void Attack()
     {
-        Vector2 moveDir = player.position - transform.position;
-        RaycastHit2D hit1 = Physics2D.Raycast(
-           transform.position,
-           moveDir.normalized,
-           detectLength,
-           layerMask
-        );
-        if(hit1.collider != null)
+        if (!move.obstacleBlocked)
         {
-            hit1.collider.gameObject.GetComponent<PlayerHealth>().Kill();
-            GetComponent<EnemyMovement>().attacking = true;
-            animator.SetTrigger("Attack");
+            Vector2 moveDir = player.position - transform.position;
+            RaycastHit2D hit1 = Physics2D.Raycast(
+               transform.position,
+               moveDir.normalized,
+               detectLength,
+               layerMask
+            );
+            if (hit1.collider != null)
+            {
+                hit1.collider.gameObject.GetComponent<PlayerHealth>().Kill();
+                GetComponent<EnemyMovement>().attacking = true;
+                animator.SetTrigger("Attack");
+            }
         }
     }
 }

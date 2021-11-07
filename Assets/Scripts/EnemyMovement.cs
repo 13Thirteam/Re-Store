@@ -8,7 +8,7 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] private float detectLength;
     [SerializeField] private LayerMask layerMask;
     private Transform player;
-    [SerializeField] private bool obstacleBlocked = false;
+    [SerializeField] public bool obstacleBlocked = false;
     private Vector2 dodgeDir;
     private Animator animator;
     public bool attacking = false;
