@@ -16,8 +16,8 @@ public class GameController : MonoBehaviour
     //references
     public static Transform player;
     [SerializeField] private Transform playerRef;
-    [SerializeField] private TextMeshProUGUI[] deathUI;
-    [SerializeField] private TextMeshProUGUI[] winUI;
+    [SerializeField] private Image[] deathUI;
+    [SerializeField] private Image[] winUI;
     [SerializeField] private Image fadeImg;
     [SerializeField] private LevelTracker levelInfo;
     [SerializeField] private Image dots;
@@ -46,11 +46,11 @@ public class GameController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        foreach (TextMeshProUGUI t in deathUI)
+        foreach (Image t in deathUI)
         {
             t.color = new Color(t.color.r, t.color.g, t.color.b, 0);
         }
-        foreach (TextMeshProUGUI t in winUI)
+        foreach (Image t in winUI)
         {
             t.color = new Color(t.color.r, t.color.g, t.color.b, 0);
         }
@@ -107,9 +107,9 @@ public class GameController : MonoBehaviour
         dotting = true;
     }
 
-    private void FadeTextIn(TextMeshProUGUI[] UI)
+    private void FadeTextIn(Image[] UI)
     {
-        foreach (TextMeshProUGUI t in UI)
+        foreach (Image t in UI)
         {
             if (t.color.a >= 1)
             {
