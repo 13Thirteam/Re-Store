@@ -20,6 +20,8 @@ public class GameController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI[] winUI;
     [SerializeField] private Image fadeImg;
     [SerializeField] private LevelTracker levelInfo;
+    [SerializeField] private Image dots;
+    [SerializeField] private Sprite[] dotImages;
 
     //states
     private bool fadingLose = false;
@@ -30,7 +32,8 @@ public class GameController : MonoBehaviour
     private bool won = false;
     public static int spawnCount = 0;
     public static int killCount = 0;
-
+    private int currentDot = 0;
+    private bool dotting = true;
 
     // Start is called before the first frame update
     void Awake()
@@ -50,6 +53,7 @@ public class GameController : MonoBehaviour
             t.color = new Color(t.color.r, t.color.g, t.color.b, 0);
         }
         fadeImg.color = new Color(fadeImg.color.r, fadeImg.color.g, fadeImg.color.b, 1);
+        dots.color = new Color(dots.color.r, dots.color.g, dots.color.b, 0);
     }
 
     // Update is called once per frame
@@ -82,6 +86,23 @@ public class GameController : MonoBehaviour
             FadeTextIn(winUI);
         }
         if(!won && killCount >= spawnCount) { Win(); }
+        if(dotting)
+        {
+            dots.sprite = dotImages[currentDot];
+            currentDot++;
+            if(currentDot >=3)
+            {
+                currentDot = 0;
+            }
+            StartCoroutine(DotTimer());
+        }
+    }
+
+    private IEnumerator DotTimer()
+    {
+        dotting = false;
+        yield return new WaitForSecondsRealtime(.33f);
+        dotting = true;
     }
 
     private void FadeTextIn(TextMeshProUGUI[] UI)
@@ -98,6 +119,10 @@ public class GameController : MonoBehaviour
                 }
             }
             t.color = new Color(t.color.r, t.color.g, t.color.b, t.color.a + fadeRate * Time.deltaTime);
+        }
+        if(won)
+        {
+            dots.color = new Color(dots.color.r, dots.color.g, dots.color.b, dots.color.a + fadeRate * Time.deltaTime);
         }
     }
 
