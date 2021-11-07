@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: asset-sheet_props_0
+  m_Name: 20211106_assets-wshadow_5
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 3712865059158244469, guid: 59fb9f7bcbfb1e74c8b1a175b838909f, type: 3}
+  m_Sprite: {fileID: -5325362477870465388, guid: 1ecff07951a23634f8efcf3d7d0fe50a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
