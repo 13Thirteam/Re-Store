@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] GameObject enemy;
+    [SerializeField] bool matchLocation = false;
     public List<int> spawnTimes;
     [SerializeField] Vector2 spawnLocation;
     int index;
@@ -14,6 +15,7 @@ public class EnemySpawner : MonoBehaviour
     {
         spawnTimes.Sort();
         GameController.spawnCount += spawnTimes.Count;
+        if (matchLocation) spawnLocation = transform.position;
     }
 
     void Update()
