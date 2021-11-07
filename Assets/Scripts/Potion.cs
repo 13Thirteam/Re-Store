@@ -9,6 +9,7 @@ public class Potion : MonoBehaviour
     public int damage = 1;
     public GameObject explosionPrefab;
     public Rigidbody2D potionRB;
+    [SerializeField] private float explosionLifetime = 2f;
 
     // Start is called before the first frame update
     void Start()
@@ -33,7 +34,7 @@ public class Potion : MonoBehaviour
     {
         GameObject explosion = Instantiate(explosionPrefab, potionRB.transform.position, potionRB.transform.rotation);
         explosion.GetComponent<Animator>().SetBool("Contact", contact);
-        Destroy(explosion, 2f);
+        Destroy(explosion, explosionLifetime);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
