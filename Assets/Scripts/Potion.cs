@@ -24,22 +24,23 @@ public class Potion : MonoBehaviour
     {
         if (potionRB.velocity.magnitude < lifetime)
         {
-            explode();
+            explode(false);
             Destroy(gameObject);
         }
     }
 
-    void explode()
+    void explode(bool contact)
     {
-        GameObject potion = Instantiate(explosionPrefab, potionRB.transform.position, potionRB.transform.rotation);
-        Destroy(potion, 2f);
+        GameObject explosion = Instantiate(explosionPrefab, potionRB.transform.position, potionRB.transform.rotation);
+        explosion.GetComponent<Animator>().SetBool("Contact", contact);
+        Destroy(explosion, 2f);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (!collision.CompareTag("Player"))
         {
-            explode();
+            explode(true);
             if (collision.gameObject.GetComponent<EnemyHealth>()) collision.gameObject.GetComponent<EnemyHealth>().TakeDamage(damage);
             Debug.Log("hit");
             Destroy(gameObject);

@@ -18,6 +18,11 @@ public class Explosion : MonoBehaviour
         
     }
 
+    public void PlaySound()
+    {
+        GetComponent<AudioSource>().Play();
+    }
+
     void OnTriggerEnter2D(Collider2D target)
     {
         if (target.CompareTag("Enemy"))
