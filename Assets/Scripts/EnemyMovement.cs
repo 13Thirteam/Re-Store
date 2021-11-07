@@ -13,12 +13,14 @@ public class EnemyMovement : MonoBehaviour
     private Animator animator;
     public bool attacking = false;
     private string currentDir;
+    private Vector2 animDir;
 
     // Start is called before the first frame update
     void Start()
     {
         player = GameController.player;
         animator = GetComponent<Animator>();
+        StartCoroutine(animDelay());
     }
 
     // Update is called once per frame
@@ -61,15 +63,24 @@ public class EnemyMovement : MonoBehaviour
             }
             if (!attacking) {
                 transform.position = (Vector2)transform.position + dodgeDir / moveDir.magnitude * moveSpeed * Time.deltaTime;
-                MoveAnimate(dodgeDir);
+                animDir = moveDir;
             }
         }
         else
         {
             if (!attacking) {
-                MoveAnimate(moveVec - transform.position);
+                animDir = moveVec - transform.position;
                 transform.position = moveVec;
             }
+        }
+    }
+
+    private IEnumerator animDelay()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(.1f);
+            MoveAnimate(animDir);
         }
     }
 

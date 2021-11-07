@@ -1280,6 +1280,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyTEMP 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2260508878156986567, guid: 044fa0e4b9958d045ab47729f2fd67ea, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4315992931111148493, guid: 044fa0e4b9958d045ab47729f2fd67ea, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -1891,7 +1895,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 2260508878156986567, guid: 044fa0e4b9958d045ab47729f2fd67ea, type: 3}
-  spawnTimes: c8000000
+  spawnTimes: 03000000020000000100000008000000090000000a000000
   spawnLocation: {x: 9, y: 0}
 --- !u!4 &1366366988
 Transform:
