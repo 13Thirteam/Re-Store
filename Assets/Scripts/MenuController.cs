@@ -26,7 +26,9 @@ public class MenuController : MonoBehaviour
     {
         if (fadingIn)
         {
-            if (fadeImg.color.a <= 0) { fadingIn = false; }
+            if (fadeImg.color.a <= 0) { fadingIn = false;
+                fadeImg.gameObject.SetActive(false);
+            }
             fadeImg.color = new Color(fadeImg.color.r, fadeImg.color.g, fadeImg.color.b, fadeImg.color.a - fadeRate * Time.deltaTime);
             audioSource.volume += fadeRate * Time.deltaTime;
         }
