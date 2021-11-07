@@ -2060,7 +2060,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemy: {fileID: 2260508878156986567, guid: eef864359bc460d44a3d1623ca3a8f0f, type: 3}
   spawnTimes: 0100000002000000030000000400000008000000
-  spawnLocation: {x: 10, y: 0}
+  spawnLocation: {x: 9, y: 0}
 --- !u!4 &1366366988
 Transform:
   m_ObjectHideFlags: 0
@@ -2069,7 +2069,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1366366986}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 10, y: 0, z: -4.286047}
+  m_LocalPosition: {x: 9, y: 0, z: -4.286047}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

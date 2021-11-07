@@ -39,6 +39,8 @@ public class GameController : MonoBehaviour
     void Awake()
     {
         player = playerRef;
+        spawnCount = 0;
+        killCount = 0;
     }
 
     // Start is called before the first frame update
@@ -139,7 +141,8 @@ public class GameController : MonoBehaviour
         }
         else
         { 
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(4);
+            levelInfo.currentLevel = 1;
         }
     }
 
