@@ -15,8 +15,9 @@ GameObject:
   - component: {fileID: 9178477550967701294}
   - component: {fileID: 98538864180155608}
   - component: {fileID: -3824198183466799556}
+  - component: {fileID: 965943299}
   m_Layer: 0
-  m_Name: EnemyTEMP 1
+  m_Name: Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -105,6 +106,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   obstacleBlocked: 0
+  attacking: 0
 --- !u!50 &7571568548432483412
 Rigidbody2D:
   serializedVersion: 4
@@ -182,3 +184,22 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 512
+--- !u!95 &965943299
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2260508878156986567}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 29fb4c94c8e471e4b813fe03deacd0d7, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

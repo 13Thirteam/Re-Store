@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyAttack : MonoBehaviour
 {
     private Transform player;
+    private Animator animator;
     [SerializeField] private float detectLength;
     [SerializeField] private LayerMask layerMask;
 
@@ -12,6 +13,7 @@ public class EnemyAttack : MonoBehaviour
     void Start()
     {
         player = GameController.player;
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -32,6 +34,8 @@ public class EnemyAttack : MonoBehaviour
         if(hit1.collider != null)
         {
             hit1.collider.gameObject.GetComponent<PlayerHealth>().Kill();
+            GetComponent<EnemyMovement>().attacking = true;
+            animator.SetTrigger("Attack");
         }
     }
 }
