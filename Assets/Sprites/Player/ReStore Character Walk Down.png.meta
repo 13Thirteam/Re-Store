@@ -1,16 +1,16 @@
 fileFormatVersion: 2
-guid: f4206b7977899684fa46a26c22960bc4
+guid: 5a0dbbf56ff607e408de5c21bffa2ae2
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4495510707524078878
-    second: ReStore Character Walk Right_0
+      213: 7679794126626003618
+    second: ReStore Character Walk Down_0
   - first:
-      213: -4123394196512977638
-    second: ReStore Character Walk Right_1
+      213: 9200875074797863970
+    second: ReStore Character Walk Down_1
   - first:
-      213: 2744901901593583552
-    second: ReStore Character Walk Right_2
+      213: -1959435802059301050
+    second: ReStore Character Walk Down_2
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: ReStore Character Walk Right_0
+      name: ReStore Character Walk Down_0
       rect:
         serializedVersion: 2
-        x: 52
-        y: 38
-        width: 278
-        height: 471
+        x: 65
+        y: 28
+        width: 260
+        height: 494
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -114,20 +114,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e1d00f59b23436e30800000000000000
-      internalID: 4495510707524078878
+      spriteID: 2aa9ca1a11c149a60800000000000000
+      internalID: 7679794126626003618
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ReStore Character Walk Right_1
+      name: ReStore Character Walk Down_1
       rect:
         serializedVersion: 2
-        x: 409
-        y: 39
-        width: 278
-        height: 471
+        x: 422
+        y: 25
+        width: 268
+        height: 494
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -135,20 +135,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a1dcfef23d2c6c6c0800000000000000
-      internalID: -4123394196512977638
+      spriteID: 2248218d12310bf70800000000000000
+      internalID: 9200875074797863970
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: ReStore Character Walk Right_2
+      name: ReStore Character Walk Down_2
       rect:
         serializedVersion: 2
-        x: 754
-        y: 41
-        width: 278
-        height: 471
+        x: 776
+        y: 26
+        width: 263
+        height: 494
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -156,8 +156,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0cf97c38cb9d71620800000000000000
-      internalID: 2744901901593583552
+      spriteID: 64f9212058faec4e0800000000000000
+      internalID: -1959435802059301050
       vertices: []
       indices: 
       edges: []
