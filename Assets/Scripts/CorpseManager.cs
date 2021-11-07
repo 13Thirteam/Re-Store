@@ -11,7 +11,7 @@ public class CorpseManager : MonoBehaviour
     public void makeCorpse(Vector3 pos) //instantiates corpse object under corpseManager object
     {
         GameObject currentCorpse = Instantiate(corpse, pos, Quaternion.identity, transform);
-        currentCorpse.GetComponent<SpriteRenderer>().sortingOrder = currentLayer;
-        currentLayer++;
+        //currentCorpse.GetComponent<SpriteRenderer>().sortingOrder = currentLayer;
+        //currentLayer++;
     }
 }
