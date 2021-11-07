@@ -10,6 +10,7 @@ public class GameController : MonoBehaviour
     
     //parameters
     [SerializeField] private float fadeRate;
+    [SerializeField] private float fadeInRate;
     [SerializeField] private float timeBeforeLevelChange = 2f;
 
     //references
@@ -22,6 +23,7 @@ public class GameController : MonoBehaviour
     //states
     private bool fadingLose = false;
     private bool fadingBlack = false;
+    private bool fadingIn = true;
     private bool fadingWin = false;
     private bool lost = false;
     private bool won = false;
@@ -46,11 +48,17 @@ public class GameController : MonoBehaviour
         {
             t.color = new Color(t.color.r, t.color.g, t.color.b, 0);
         }
+        fadeImg.color = new Color(fadeImg.color.r, fadeImg.color.g, fadeImg.color.b, 1);
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (fadingIn)
+        {
+            if(fadeImg.color.a <= 0) { fadingIn = false; }
+            fadeImg.color = new Color(fadeImg.color.r, fadeImg.color.g, fadeImg.color.b, fadeImg.color.a - fadeInRate * Time.deltaTime);
+        }
         if (fadingBlack)
         {
             if (fadeImg.color.a >= 1)
@@ -93,7 +101,7 @@ public class GameController : MonoBehaviour
         fadingBlack = true;
         won = true;
         //sfx
-        //StartCoroutine(levelChangeTimer());
+        StartCoroutine(levelChangeTimer());
     }
 
     private IEnumerator levelChangeTimer()

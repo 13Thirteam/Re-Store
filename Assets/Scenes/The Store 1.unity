@@ -522,7 +522,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadeRate: 0.75
-  timeBeforeLevelChange: 2
+  fadeInRate: 0.75
+  timeBeforeLevelChange: 4
   playerRef: {fileID: 718056052}
   deathUI:
   - {fileID: 517061042}
@@ -1686,7 +1687,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 2000, y: 1084}
+  m_SizeDelta: {x: 2000, y: 1300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1125814790
 GameObject:
