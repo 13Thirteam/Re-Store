@@ -10,11 +10,15 @@ public class EnemyMovement : MonoBehaviour
     private Transform player;
     [SerializeField] private bool obstacleBlocked = false;
     private Vector2 dodgeDir;
+    private Animator animator;
+    public bool attacking = false;
+    private string currentDir;
 
     // Start is called before the first frame update
     void Start()
     {
         player = GameController.player;
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -55,11 +59,47 @@ public class EnemyMovement : MonoBehaviour
                 obstacleBlocked = true;
                 dodgeDir = Vector2.Perpendicular(moveDir);
             }
-            transform.position = (Vector2)transform.position + dodgeDir/moveDir.magnitude * moveSpeed * Time.deltaTime;
+            if (!attacking) {
+                transform.position = (Vector2)transform.position + dodgeDir / moveDir.magnitude * moveSpeed * Time.deltaTime;
+                MoveAnimate(dodgeDir);
+            }
         }
         else
         {
-            transform.position = moveVec;
+            if (!attacking) {
+                MoveAnimate(moveVec - transform.position);
+                transform.position = moveVec;
+            }
+        }
+    }
+
+    private void MoveAnimate(Vector2 dir)
+    {
+        if(Mathf.Abs(dir.x) > Mathf.Abs(dir.y))
+        {
+            if (dir.x > 0 && currentDir != "R")
+            {
+                animator.SetTrigger("MoveRight");
+                currentDir = "R";
+            }
+            else if (dir.x < 0 && currentDir != "L")
+            {
+                animator.SetTrigger("MoveLeft");
+                currentDir = "L";
+            }
+        }
+        else
+        {
+            if (dir.y > 0 && currentDir != "U")
+            {
+                animator.SetTrigger("MoveUp");
+                currentDir = "U";
+            }
+            else if (dir.y < 0 && currentDir != "D")
+            {
+                animator.SetTrigger("MoveDown");
+                currentDir = "D";
+            }
         }
     }
 }
