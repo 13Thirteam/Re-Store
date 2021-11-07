@@ -124,6 +124,7 @@ MonoBehaviour:
   damage: 1
   explosionPrefab: {fileID: 705416144570526289, guid: 7301e5ac8d53c5c45916e45fa4fd6fc4, type: 3}
   potionRB: {fileID: 7275760019396174638}
+  explosionLifetime: 1
 --- !u!58 &5063025261585191910
 CircleCollider2D:
   m_ObjectHideFlags: 0
