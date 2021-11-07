@@ -522,13 +522,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadeRate: 0.75
-  timeBeforeLevelChange: 2
+  fadeInRate: 0.75
+  timeBeforeLevelChange: 4
   playerRef: {fileID: 718056052}
   deathUI:
   - {fileID: 517061042}
   winUI:
   - {fileID: 346069414}
   fadeImg: {fileID: 1112858006}
+  levelInfo: {fileID: 11400000, guid: ca6f0ea6469aa524d9f59e7bb7d5e232, type: 2}
 --- !u!4 &206785309
 Transform:
   m_ObjectHideFlags: 0
