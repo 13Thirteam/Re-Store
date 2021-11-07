@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3794290359249793377}
   - component: {fileID: 3794290359249793376}
   m_Layer: 8
-  m_Name: 20211106_assets-wshadow_3
+  m_Name: Register
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
