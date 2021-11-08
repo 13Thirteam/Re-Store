@@ -58,7 +58,7 @@ public class GameController : MonoBehaviour
             t.color = new Color(t.color.r, t.color.g, t.color.b, 0);
         }
         fadeImg.color = new Color(fadeImg.color.r, fadeImg.color.g, fadeImg.color.b, 1);
-        dots.color = new Color(dots.color.r, dots.color.g, dots.color.b, 0);
+        if (dots != null) { dots.color = new Color(dots.color.r, dots.color.g, dots.color.b, 0); }
     }
 
     // Update is called once per frame
@@ -91,7 +91,7 @@ public class GameController : MonoBehaviour
             FadeTextIn(winUI);
         }
         if(!won && killCount >= spawnCount) { Win(); }
-        if(dotting)
+        if(dotting && dots != null)
         {
             dots.sprite = dotImages[currentDot];
             currentDot++;
@@ -127,7 +127,7 @@ public class GameController : MonoBehaviour
         }
         if(won)
         {
-            dots.color = new Color(dots.color.r, dots.color.g, dots.color.b, dots.color.a + fadeRate * Time.deltaTime);
+            if (dots != null) { dots.color = new Color(dots.color.r, dots.color.g, dots.color.b, dots.color.a + fadeRate * Time.deltaTime); }
         }
     }
 
