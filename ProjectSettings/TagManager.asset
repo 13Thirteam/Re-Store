@@ -48,3 +48,6 @@ TagManager:
   - name: Particles
     uniqueID: 3352706759
     locked: 0
+  - name: Story
+    uniqueID: 2261323685
+    locked: 0
