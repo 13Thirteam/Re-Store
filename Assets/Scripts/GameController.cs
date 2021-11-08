@@ -12,6 +12,7 @@ public class GameController : MonoBehaviour
     [SerializeField] private float fadeRate;
     [SerializeField] private float fadeInRate;
     [SerializeField] private float timeBeforeLevelChange = 2f;
+    [SerializeField] private float timeBeforeGameOver = 7f;
 
     //references
     public static Transform player;
@@ -22,6 +23,8 @@ public class GameController : MonoBehaviour
     [SerializeField] private LevelTracker levelInfo;
     [SerializeField] private Image dots;
     [SerializeField] private Sprite[] dotImages;
+    [SerializeField] private AudioSource music;
+    [SerializeField] private AudioSource gameOverMusic;
 
     //states
     private bool fadingLose = false;
@@ -117,7 +120,7 @@ public class GameController : MonoBehaviour
                 if (lost)
                 {
                     fadingLose = false;
-                    SceneManager.LoadScene(0);
+                    StartCoroutine(GameOverTimer());
                 }
             }
             t.color = new Color(t.color.r, t.color.g, t.color.b, t.color.a + fadeRate * Time.deltaTime);
@@ -151,6 +154,12 @@ public class GameController : MonoBehaviour
         }
     }
 
+    private IEnumerator GameOverTimer()
+    {
+        yield return new WaitForSeconds(timeBeforeGameOver);
+        SceneManager.LoadScene(0);
+    }
+
     private IEnumerator levelChangeTimer()
     {
         yield return new WaitForSeconds(timeBeforeLevelChange);
@@ -166,6 +175,11 @@ public class GameController : MonoBehaviour
     {
         fadingBlack = true;
         levelInfo.currentLevel = SceneManager.GetActiveScene().buildIndex;
+        if (!lost)
+        {
+            gameOverMusic.Play();
+            music.Pause();
+        }
         lost = true;
     }
     
