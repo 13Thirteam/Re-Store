@@ -133,8 +133,8 @@ public class GameController : MonoBehaviour
 
     private void FinalWin()
     {
-        SceneManager.LoadScene(4);
-        levelInfo.currentLevel = 1;
+        SceneManager.LoadScene(5);
+        levelInfo.currentLevel = 2;
     }
 
     private void Win()
@@ -144,7 +144,7 @@ public class GameController : MonoBehaviour
         levelInfo.currentLevel++;
         //sfx
         won = true;
-        if (levelInfo.currentLevel < 4)
+        if (levelInfo.currentLevel < 5)
         {
             StartCoroutine(levelChangeTimer());
         }
