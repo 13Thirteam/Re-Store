@@ -207,7 +207,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4911976007472997199}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.4838367, y: -0.099942684, z: 4.5342183}
+  m_LocalPosition: {x: 0, y: 0, z: 4.5342183}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4911976006008296418}
@@ -229,5 +229,5 @@ MonoBehaviour:
   fireOffset: 0
   potionPrefab: {fileID: 7275760019396174635, guid: 589b09b6b7a90334895e3c53176784eb, type: 3}
   potionForce: 20
-  fireRate: 1.5
+  fireRate: 1
   playerRB: {fileID: 4911976006008296423}
